@@ -1,3 +1,6 @@
 /.env
 /.idea
 composer.lock
+/vendor
+token_log.txt
+.phpunit.result.cache

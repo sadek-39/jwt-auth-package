@@ -13,9 +13,9 @@ class JwtAuth
 
     public function __construct()
     {
-        $this->secret = config('config.secret');
-        $this->algorithm = config('config.algorithm');
-        $this->ttl = config('config.ttl');
+        $this->secret = config('jwt-auth.secret');
+        $this->algorithm = config('jwt-auth.algorithm');
+        $this->ttl = config('jwt-auth.ttl');
     }
 
     public function generateToken($user)
@@ -27,7 +27,7 @@ class JwtAuth
             'exp' => time() + $this->ttl,
         ];
 
-        return JWT::encode($payload, $this->secret, "HS256");
+        return JWT::encode($payload, $this->secret, $this->algorithm);
     }
 
     public function validateToken($token)
