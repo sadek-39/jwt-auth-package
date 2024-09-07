@@ -1,0 +1,54 @@
+{
+    "name": "sadek/jwt-auth",
+    "description": "jwt-auth-implementation",
+    "keywords": [
+        "sadek",
+        "jwt-auth"
+    ],
+    "homepage": "https://github.com/sadek-39/jwt-auth",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "sadek",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "firebase/php-jwt": "^6.10",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sadek\\JwtAuth\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sadek\\JwtAuth\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sadek\\JwtAuth\\JwtAuthServiceProvider"
+            ],
+            "aliases": {
+                "JwtAuth": "Sadek\\JwtAuth\\JwtAuthFacade"
+            }
+        }
+    }
+}
