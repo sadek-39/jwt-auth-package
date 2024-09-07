@@ -19,6 +19,8 @@ class JwtAuthServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
+
+        $this->app['router']->aliasMiddleware('jwt.auth', \Sadek\JwtAuth\middleware\JwtMiddleware::class);
     }
 
     /**

@@ -9,12 +9,12 @@ test('test_generateToken', function () {
         public $name = 'Sadek';
     };
     $auth = new \Sadek\JwtAuth\JwtAuth();
-    $token = $auth->generateToken( (object)$user);
+    $token = $auth->generateToken((object)$user);
 
     file_put_contents("token_log.txt", "Generated Token: " . $token . PHP_EOL);
     expect($token)->not->toBeNull();
 
     $decoded = $auth->validateToken($token);
 
-    expect($decoded->sub)->toBe($user->id);
+    expect($decoded['sub'])->toBe($user->id);
 });
