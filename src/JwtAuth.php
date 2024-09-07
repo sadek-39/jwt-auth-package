@@ -27,7 +27,7 @@ class JwtAuth
             'exp' => time() + $this->ttl,
         ];
 
-        return JWT::encode($payload, $this->secret, $this->algorithm);
+        return JWT::encode($payload, $this->secret, "HS256");
     }
 
     public function validateToken($token)
